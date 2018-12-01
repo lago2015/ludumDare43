@@ -197,7 +197,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7bec34124aa8295449abf32fe043ddff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  poolScript: {fileID: 0}
   bulletSpawnPoint: {fileID: 1867461832249164}
+  healthScipt: {fileID: 0}
 --- !u!135 &135234986754065486
 SphereCollider:
   m_ObjectHideFlags: 1
