@@ -8,12 +8,18 @@ public class MenuManager : MonoBehaviour
 {
     public GameObject menuScreen;
     public GameObject optionScreen;
+    public GameObject hud;
+    public GameObject controls;
+  
 
     public Slider sfxSlider;
     public Slider musicSlider;
 
-    public Text startText;
-    public Text titleText;
+    public Image startButton;
+    public Image titleImage;
+
+    public Sprite[] texts;
+    public GameObject[] titles;
 
     private bool menuOn;
     private SoundManager soundManger;
@@ -26,11 +32,11 @@ public class MenuManager : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.P))
+        if (Input.GetKeyDown(KeyCode.G))
         {
-            if(!menuOn)
+            if (!menuOn)
             {
-                Pause();
+                GameOver();
             }
         }
     }
@@ -38,8 +44,17 @@ public class MenuManager : MonoBehaviour
     public void StartGame()
     {
         menuScreen.SetActive(false);
+        controls.SetActive(false);
+        hud.SetActive(true);
         menuOn = false;
         Time.timeScale = 1;
+    }
+
+    public void RestartGame()
+    {
+        // Logic for restarting scores, player, etc.
+
+        StartGame();
     }
 
     public void Options()
@@ -58,6 +73,10 @@ public class MenuManager : MonoBehaviour
     {
         menuScreen.SetActive(true);
         optionScreen.SetActive(false);
+        titles[0].SetActive(true);
+        titles[1].SetActive(false);
+        titles[2].SetActive(false);
+        hud.SetActive(false);
         menuOn = true;
         Time.timeScale = 0;
     }
@@ -65,14 +84,19 @@ public class MenuManager : MonoBehaviour
     public void Pause()
     {
         Menu();
-        startText.text = "Resume";
+        titles[0].SetActive(false);
+        titles[1].SetActive(false);
+        titles[2].SetActive(true);
+        startButton.sprite = texts[1];
     }
 
     public void GameOver()
     {
         Menu();
-        titleText.text = "Game Over";
-        startText.text = "Restart";
+        titles[0].SetActive(false);
+        titles[1].SetActive(true);
+        titles[2].SetActive(false);
+        startButton.sprite = texts[2];
     }
     
     public void QuitGame()
