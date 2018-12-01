@@ -4,14 +4,60 @@ using UnityEngine;
 
 public class PlayerCollision : MonoBehaviour {
 
+    private Collider2D myCollider;
+    public ObjectPoolManager pillarDodgedPool;
+    public string colliderPoolString="colliderPool";
+    private PlayerShooting playerShootScript;
+    private PlayerMovement playerMoveScript;
+    public GameObject explosion;
+    private SpriteRenderer spriteComp;
+    private bool isDead;
+    private int pillarsDodged;
+    public bool isPlayerDead() { return isDead; }
+
+    private void Awake()
+    {
+        myCollider = GetComponent<Collider2D>();
+        spriteComp = GetComponent<SpriteRenderer>();
+        playerMoveScript = GetComponent<PlayerMovement>();
+        playerShootScript = GetComponent<PlayerShooting>();
+        
+    }
+
+    private void Start()
+    {
+        ResetGame();
+    }
+
+    public void ResetGame()
+    {
+        playerMoveScript.PlayerStatus(false);
+        playerShootScript.PlayerStatus(false);
+        explosion.SetActive(false);
+        spriteComp.enabled = true;
+        myCollider.enabled = true;
+    }
 
     private void OnTriggerEnter2D(Collider2D col)
     {
+        ObstacleBlock curObstacle = col.gameObject.GetComponent<ObstacleBlock>();
+        if(curObstacle && col.CompareTag("Obstacle"))
+        {
+            playerMoveScript.PlayerStatus(true);
+            playerShootScript.PlayerStatus(true);
+            explosion.SetActive(true);
+            spriteComp.enabled = false;
+            myCollider.enabled = false;
+        }
         
     }
 
     private void OnTriggerExit2D(Collider2D col)
     {
-        
+        if(col.CompareTag("PillarDodged"))
+        {
+            pillarDodgedPool.PutBackObject(colliderPoolString, col.gameObject);
+            pillarsDodged++;
+        }
     }
 }

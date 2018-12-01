@@ -4,7 +4,7 @@ using UnityEngine;
 
 [CreateAssetMenu]
 public class PlayerHealthBullets : ScriptableObject {
-
+    public int defaultAmount = 10;
     public int NumOfBullets;
     private int randNum;
 
@@ -12,8 +12,8 @@ public class PlayerHealthBullets : ScriptableObject {
 
     public void ReplenishBullets()
     {
-        randNum = Random.Range(4, 6);
-        NumOfBullets = randNum;
+        
+        NumOfBullets = defaultAmount;
     }
 
     public bool IsThereBulletsLeft()

@@ -4,12 +4,31 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour {
 
+    private float defaultSpeed;
     public float speed = 2.0f;      //speed to travel 
-    private Vector3 curPosition;       
+    private Vector3 curPosition;
+    private bool isDead;
 
+    private void Awake()
+    {
+        defaultSpeed = speed;
+    }
+
+    public void PlayerStatus(bool isPlayerDead)
+    {
+        if (isPlayerDead)
+        {
+            speed = 0;
+        }
+        else
+        {
+            speed = defaultSpeed;
+        }
+    }
     
     void Update()
     {
+        
         //player going down
         if (Input.GetKey(KeyCode.S))
         {

@@ -4,17 +4,19 @@ using UnityEngine;
 
 public class BulletMovement : MonoBehaviour {
 
+    private GameObject explosion;
     public float moveSpeed = 5.0f;
     public bool ShouldMove = true;
     public float travelTimeRocket = 3;
     private Vector3 curPosition;
-    private ObjectPool myPool;
-
-    public void SetPool(ObjectPool curPool) { myPool = curPool; }
+    private ObjectPoolManager bulletPool;
+    public string bulletPoolName;
+    public string explosionPoolName;
+    public void SetPool(ObjectPoolManager curPool) { bulletPool = curPool; }
     public void ResetCoroutine()
     {
-        StopAllCoroutines();
-        StartCoroutine(LaunchTime());
+        //StopAllCoroutines();
+        //StartCoroutine(LaunchTime());
     }
     
     void FixedUpdate()
@@ -30,16 +32,18 @@ public class BulletMovement : MonoBehaviour {
 
     IEnumerator LaunchTime()
     {
-
         yield return new WaitForSeconds(travelTimeRocket);
 
-        BlowUp(false);
+        BlowUp(transform.position);
     }
 
-    public void BlowUp(bool damage)
+    public void BlowUp(Vector3 curPosition)
     {
+        explosion = bulletPool.FindObject(explosionPoolName);
+        explosion.transform.position = curPosition;
+        explosion.SetActive(true);
         //spawn explosion
-
-        myPool.ReturnCurObstacle(gameObject);
+        bulletPool.PutBackObject(bulletPoolName, gameObject);
+        
     }
 }

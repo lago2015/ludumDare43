@@ -8,8 +8,9 @@ public class ObstacleManager : MonoBehaviour {
 
     //Static instance of obstacle manager which allows it to be accessed by any other script.
     public static ObstacleManager instance = null;
-    public ObjectPool obstaclePool;
-    public ObjectPool scoreColliderPool;
+    private ObjectPoolManager poolManager;
+    private string obstaclePoolName = "blockPool";
+    private string pillarDodgePoolName = "colliderPool";
     public GameObject[] pickupArray;
     public GameObject[] spawnPoints;
     public GameObject pillarSpawnPoint;
@@ -20,13 +21,13 @@ public class ObstacleManager : MonoBehaviour {
     public bool fastMode;
     //color generation variables
     
-    public int curColorPlaced;
-    public int curColorNum;
+    
+    
     private int randomIndex;
     private int curColorPlacement;
     
     private int curSecondaryColorPlace;
-    public int curSwitch;
+    
     public float spawnCooldown = 10;
     private float pillarSpawnCooldown;
     //pick up variables
@@ -50,11 +51,7 @@ public class ObstacleManager : MonoBehaviour {
 
     private void Awake()
     {
-        
-        if (obstaclePool == null)
-            obstaclePool = GetComponent<ObjectPool>();
-        if (scoreColliderPool == null)
-            scoreColliderPool = transform.GetChild(0).GetComponent<ObjectPool>();
+        poolManager = GetComponent<ObjectPoolManager>();
         GetPlayer();
         if (instance == null)
         {
@@ -95,22 +92,17 @@ public class ObstacleManager : MonoBehaviour {
 
     public void NewGameObstacles()
     {
-        curColorPlaced = 0;
-        
-        curSwitch = 0;
         SpawnObstacles();
         SpawnPickup();
     }
     
     public void SpawnObstacles()
     {
-        
-
         //spawn pillar of color
         for (int i = 1; i <= spawnPoints.Length; i++)
         {
             //get current obstacle
-            curObstacle = obstaclePool.GetObject();
+            curObstacle = poolManager.FindObject(obstaclePoolName);
             obstacleController = curObstacle.GetComponent<ObstacleBlock>();
             if (curObstacle)
             {
@@ -136,13 +128,13 @@ public class ObstacleManager : MonoBehaviour {
             }
 
         }
-        curColorPlaced++;
+        
         //shuffle the spawn points for next iteration for a pillar spawn
         RandomizeSpawnPoints();
         //this is the pillar dodged collider to notify the game when the player
         //has scored and readys the next collider
         //Get collider from pool
-        curCollider = scoreColliderPool.GetObject();
+        curCollider = poolManager.FindObject(pillarDodgePoolName);
         //place it to the spawn point which should be behind the pillar
         curCollider.transform.position = pillarSpawnPoint.transform.position;
         //turn gameobject on
@@ -186,10 +178,7 @@ public class ObstacleManager : MonoBehaviour {
     IEnumerator WaitForNextPillar()
     {
         yield return new WaitForSeconds(spawnCooldown);
-        if (curColorPlaced >= curSwitch)
-        {
-            curColorPlaced = 0;
-        }
+        
 
         SpawnObstacles();
     }

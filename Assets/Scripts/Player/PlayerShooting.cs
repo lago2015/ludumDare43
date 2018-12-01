@@ -5,11 +5,14 @@ using UnityEngine;
 public class PlayerShooting : MonoBehaviour {
 
     private BulletMovement curBulletScript;
-    public ObjectPool poolScript;
+    public ObjectPoolManager poolScript;
     private GameObject curBullet;
     public GameObject bulletSpawnPoint;
     public PlayerHealthBullets healthScipt;
     private int curBullets;
+    private bool isDead;
+
+    public bool PlayerStatus(bool isPlayerDead) { return isDead = isPlayerDead; }
 
     private void Awake()
     {
@@ -19,16 +22,16 @@ public class PlayerShooting : MonoBehaviour {
     private void Update()
     {
         //input for shooting
-        if(Input.GetKeyDown(KeyCode.Space))
+        if(Input.GetKeyDown(KeyCode.Space)&&!isDead)
         {
             if(healthScipt.IsThereBulletsLeft())
             {
                 //gets bullet from pool
-                curBullet = poolScript.GetObject();
+                curBullet = poolScript.FindObject("bulletPool");
                 if (curBullet)
                 {
                     //places bullet in world
-                    poolScript.PlaceBullet(curBullet, bulletSpawnPoint.transform.position);
+                    curBullet.transform.position = bulletSpawnPoint.transform.position;
                     curBulletScript = curBullet.GetComponent<BulletMovement>();
                     curBulletScript.SetPool(poolScript);
                     curBullet.SetActive(true);
