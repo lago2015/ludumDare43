@@ -1,4 +1,0 @@
-sceneSetups:
-- path: Assets/Scenes/FrancoTestScene.unity
-  isLoaded: 1
-  isActive: 1
