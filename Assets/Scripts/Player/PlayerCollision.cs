@@ -11,12 +11,11 @@ public class PlayerCollision : MonoBehaviour {
     private PlayerShooting playerShootScript;
     private PlayerMovement playerMoveScript;
     public PlayerHealthBullets healthAsset;
+    private ResetGameobjects resetScript;
     private ObstacleManager obstacleScipt;
     public GameObject explosion;
     private SpriteRenderer spriteComp;
-    private bool isDead;
     private int pillarsDodged;
-    public bool isPlayerDead() { return isDead; }
     private Vector3 startPosition;
     private void Awake()
     {
@@ -27,6 +26,7 @@ public class PlayerCollision : MonoBehaviour {
         playerMoveScript = GetComponent<PlayerMovement>();
         playerShootScript = GetComponent<PlayerShooting>();
         obstacleScipt = FindObjectOfType<ObstacleManager>();
+        resetScript = FindObjectOfType<ResetGameobjects>();
     }
 
     private void Start()
@@ -37,9 +37,6 @@ public class PlayerCollision : MonoBehaviour {
     public void ResetGame()
     {
         healthAsset.ReplenishBullets();
-        transform.position = startPosition;
-        playerMoveScript.PlayerStatus(false);
-        playerShootScript.PlayerStatus(false);
         explosion.SetActive(false);
         spriteComp.enabled = true;
         myCollider.enabled = true;
@@ -53,46 +50,23 @@ public class PlayerCollision : MonoBehaviour {
         {
             GameOver();
         }
-        
     }
 
     void GameOver()
     {
-        //tell player scripts that player is dead
-        playerMoveScript.PlayerStatus(true);
-        playerShootScript.PlayerStatus(true);
         //enable explosion and disable sprite
         explosion.SetActive(true);
         spriteComp.enabled = false;
         myCollider.enabled = false;
-
-
+        resetScript.TurnOffText();
         StartCoroutine(DelayGameOver());
-        
-        
     }
 
     IEnumerator DelayGameOver()
     {
-        yield return new WaitForSeconds(0.5f);
-
-        //reset pools
-        pillarDodgedPool.ReturnAllObject("blockPool");
-        pillarDodgedPool.ReturnAllObject("explosionPool");
-        pillarDodgedPool.ReturnAllObject("bulletPool");
-        //stop obstacle manager from spawning
-        obstacleScipt.StopEnums();
-        obstacleScipt.NewGameObstacles();
-
-        menuScript.GameOver();
+        yield return new WaitForSeconds(1f);
+        resetScript.GameOverReset();
+        ResetGame();
     }
-
-    private void OnTriggerExit2D(Collider2D col)
-    {
-        if(col.CompareTag("PillarDodged"))
-        {
-            pillarDodgedPool.PutBackObject(colliderPoolString, col.gameObject);
-            pillarsDodged++;
-        }
-    }
+    
 }

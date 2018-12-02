@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 114820162541477164}
   - component: {fileID: 114767999113418478}
   - component: {fileID: 114133105282037524}
+  - component: {fileID: 114743923266160766}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: ObstaclePool
@@ -130,10 +131,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e42363fd44cefff4d8a428879bc3aa67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  setDefaultSpeed: 0
+  setDefaultSpeed: 5
   incrementRate: 0.2
   curSpeedPref: 0
   speedCap: 10
+  speedCheckpointRate: 2
+--- !u!114 &114743923266160766
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1302084793725878}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5211e766b971ff84484a9bdcf514cda6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerBulletText: {fileID: 0}
 --- !u!114 &114767999113418478
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -176,9 +190,9 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  pillarSpawnPoint: {fileID: 0}
   fastMode: 0
-  spawnCooldown: 4
+  minSpawnCooldown: 1.5
+  maxSpawnCooldown: 3
   pickUpMinRate: 10
   pickUpMaxRate: 20
 --- !u!114 &114891347875170756

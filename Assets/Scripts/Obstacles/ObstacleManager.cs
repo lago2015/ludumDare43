@@ -87,10 +87,7 @@ public class ObstacleManager : MonoBehaviour {
             playerCollisionScript = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerCollision>();
     }
 
-    private void Start()
-    {
-        NewGameObstacles();
-    }
+    
 
     public void NewGameObstacles()
     {

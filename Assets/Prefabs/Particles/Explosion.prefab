@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4000013000450584}
   - component: {fileID: 198000012152690392}
   - component: {fileID: 199000013179625792}
+  - component: {fileID: 114650418884661168}
   m_Layer: 0
   m_Name: Explosion
   m_TagString: Untagged
@@ -35,12 +36,25 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000010981681902}
   m_LocalRotation: {x: 0.58571714, y: -0.39607283, z: -0.3959415, w: -0.5859114}
-  m_LocalPosition: {x: 3.406128, y: -15.288452, z: 0}
+  m_LocalPosition: {x: -3.5965433, y: -10.439903, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -89.981, y: -291.8831, z: 0}
+--- !u!114 &114650418884661168
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010981681902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c54aef311cef3b4488d47ce29770fa36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  duration: 0.8
+  poolName: explosionPool
 --- !u!198 &198000012152690392
 ParticleSystem:
   m_ObjectHideFlags: 1
