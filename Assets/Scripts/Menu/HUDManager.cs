@@ -6,8 +6,8 @@ public class HUDManager : MonoBehaviour {
 
     public Text checkPointText;
     public Text scoreText;
-    public Text bulletText;
-    private GameObject playerObj;
+    public TextMesh bulletText;
+    public GameObject playerObj;
     public PlayerScore scoreAsset;
     public PlayerHealthBullets bulletAsset;
     private void Awake()
