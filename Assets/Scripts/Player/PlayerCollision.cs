@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerCollision : MonoBehaviour {
 
+    private MenuManager menuScript;
     private Collider2D myCollider;
     public ObjectPoolManager pillarDodgedPool;
     public string colliderPoolString="colliderPool";
@@ -17,6 +18,7 @@ public class PlayerCollision : MonoBehaviour {
 
     private void Awake()
     {
+        menuScript = FindObjectOfType<MenuManager>();
         myCollider = GetComponent<Collider2D>();
         spriteComp = GetComponent<SpriteRenderer>();
         playerMoveScript = GetComponent<PlayerMovement>();
@@ -43,13 +45,19 @@ public class PlayerCollision : MonoBehaviour {
         ObstacleBlock curObstacle = col.gameObject.GetComponent<ObstacleBlock>();
         if(curObstacle && col.CompareTag("Obstacle"))
         {
-            playerMoveScript.PlayerStatus(true);
-            playerShootScript.PlayerStatus(true);
-            explosion.SetActive(true);
-            spriteComp.enabled = false;
-            myCollider.enabled = false;
+            GameOver();
         }
         
+    }
+
+    void GameOver()
+    {
+        playerMoveScript.PlayerStatus(true);
+        playerShootScript.PlayerStatus(true);
+        explosion.SetActive(true);
+        spriteComp.enabled = false;
+        myCollider.enabled = false;
+        menuScript.GameOver();
     }
 
     private void OnTriggerExit2D(Collider2D col)
