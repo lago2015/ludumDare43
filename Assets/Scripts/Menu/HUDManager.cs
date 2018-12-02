@@ -28,7 +28,7 @@ public class HUDManager : MonoBehaviour {
         speedScript.ResetSpeed();
         scoreAsset.ResetScore();
         scoreText.text = scoreAsset.GetCurrentScore().ToString();
-        checkPointText.text = "Checkpoint: " + scoreAsset.GetCurrentCheckpoint();
+        checkPointText.text = scoreAsset.GetCurrentCheckpoint().ToString();
     }
 
     public void IncrementScoreText(int value)
@@ -40,7 +40,7 @@ public class HUDManager : MonoBehaviour {
     public void IncrementCheckPointText()
     {
         scoreAsset.IncrementCheckpoint();
-        checkPointText.text = "Checkpoint: " + scoreAsset.GetCurrentCheckpoint();
+        checkPointText.text = scoreAsset.GetCurrentCheckpoint().ToString();
         speedScript.CheckIfCanSpeedUp(scoreAsset.GetCurrentCheckpoint());
     }
 
