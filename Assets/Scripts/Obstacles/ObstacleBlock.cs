@@ -16,9 +16,11 @@ public class ObstacleBlock : MonoBehaviour {
     public string currentColor_text;
     private Vector3 position;
     public bool isObstacle;
+    private AudioController audioScript;
 
     private void Awake()
     {
+        audioScript = FindObjectOfType<AudioController>();
         speedScript = FindObjectOfType<SpeedManager>();
         obstacleSpeed = speedScript.GetSpeed();
         hudScript = FindObjectOfType<HUDManager>();
@@ -82,6 +84,7 @@ public class ObstacleBlock : MonoBehaviour {
             {
                 obstaclePoolScript.PutBackObject(PoolName,gameObject);
                 hudScript.IncrementScoreText(curScoreValue);
+                audioScript.WallPop(transform.position);
             }
             else
             {

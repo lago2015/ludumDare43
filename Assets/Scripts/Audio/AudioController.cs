@@ -25,11 +25,7 @@ public class AudioController : MonoBehaviour {
     [Header("CheckPointObtain")]
     public AudioSource checkPointObtained;
     public float dash1Delay = 0.5f;
-    [SerializeField]
-    [Header("SpikeEnemy")]
-    public AudioSource SpikeEnemySrc;
-    public float HealthUpDelay = 0.5f;
-
+    
     
     
     // Use this for initialization
@@ -61,7 +57,7 @@ public class AudioController : MonoBehaviour {
         }
     }
 
-    public void PlutoDash1(Vector3 pos)
+    public void SacrificeObtained(Vector3 pos)
     {
         if (checkPointObtained != null)
         {
@@ -76,7 +72,7 @@ public class AudioController : MonoBehaviour {
 
 
 
-    public void PlutoDeath(Vector3 pos)
+    public void WallPop(Vector3 pos)
     {
         if (wallDestructionSrc != null)
         {
@@ -87,16 +83,7 @@ public class AudioController : MonoBehaviour {
         }
     }
 
-
-    public void PlutoHealthUp(Vector3 pos)
-    {
-        if (SpikeEnemySrc != null)
-        {
-            SpikeEnemySrc.transform.position = pos;
-            SpikeEnemySrc.loop = false;
-            SpikeEnemySrc.Play();
-        }
-    }
+    
     public void BulletPop(Vector3 pos)
     {
         if (bulletPopSrc != null)

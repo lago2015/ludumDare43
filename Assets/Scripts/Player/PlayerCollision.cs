@@ -15,10 +15,12 @@ public class PlayerCollision : MonoBehaviour {
     private ObstacleManager obstacleScipt;
     public GameObject explosion;
     private SpriteRenderer spriteComp;
+    private AudioController audioScript;
     private int pillarsDodged;
     private Vector3 startPosition;
     private void Awake()
     {
+        audioScript = FindObjectOfType<AudioController>();
         startPosition = transform.position;
         menuScript = FindObjectOfType<MenuManager>();
         myCollider = GetComponent<Collider2D>();
@@ -62,6 +64,7 @@ public class PlayerCollision : MonoBehaviour {
 
     void GameOver()
     {
+        audioScript.PlayerDeath(transform.position);
         //enable explosion and disable sprite
         explosion.SetActive(true);
         spriteComp.enabled = false;
