@@ -23,9 +23,16 @@ public class HUDManager : MonoBehaviour {
         bulletText.text = bulletAsset.NumOfBullets.ToString();
     }
 
+    public void StopSpeed()
+    {
+        speedScript.AdjustSpeed(false);
+    }
+
+
+
     public void ResetScoreText()
     {
-        speedScript.ResetSpeed();
+        
         scoreAsset.ResetScore();
         scoreText.text = scoreAsset.GetCurrentScore().ToString();
         checkPointText.text = scoreAsset.GetCurrentCheckpoint().ToString();

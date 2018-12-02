@@ -16,7 +16,7 @@ public class ResetGameobjects : MonoBehaviour {
     private GameObject checkPoint;
     public TextMesh playerBulletText;
     private Vector3 startPosition;
-    
+    private GameObject[] backgrounds;
     private GameObject playerObject;
     private void Awake()
     {
@@ -39,6 +39,13 @@ public class ResetGameobjects : MonoBehaviour {
 
     public void GameOverReset()
     {
+        backgrounds = GameObject.FindGameObjectsWithTag("Respawn");
+        for(int i=0;i<=backgrounds.Length-1;i++)
+        {
+            backgrounds[i].GetComponent<MoveObject>().AdjustSpeed(0);
+
+        }
+
         musicManager.MenuBackground();
 
         //Reset player settings
@@ -71,6 +78,13 @@ public class ResetGameobjects : MonoBehaviour {
 
     public void NewGame()
     {
+        backgrounds = GameObject.FindGameObjectsWithTag("Respawn");
+        for (int i = 0; i <= backgrounds.Length-1; i++)
+        {
+            backgrounds[i].GetComponent<MoveObject>().AdjustSpeed(1);
+
+        }
+
         musicManager.InGameBackground();
         //start spawning obstacles
         obstacleManagerScript.NewGameObstacles();

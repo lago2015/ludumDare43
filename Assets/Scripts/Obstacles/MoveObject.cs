@@ -11,9 +11,10 @@ public class MoveObject : MonoBehaviour {
     public bool isObstacle;
     private ObjectPoolManager poolScript;
     public string poolName = "colliderPool";
-
+    private Vector3 startPosition;
     private void Awake()
     {
+        startPosition = transform.position;
         poolScript = FindObjectOfType<ObjectPoolManager>();
         defaultSpeed = obstacleSpeed;
     }
@@ -29,6 +30,7 @@ public class MoveObject : MonoBehaviour {
     {
         if (newSpeed == 0)
         {
+            transform.position = startPosition;
             obstacleSpeed = newSpeed;
         }
         else
