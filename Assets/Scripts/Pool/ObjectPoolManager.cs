@@ -43,7 +43,7 @@ public class ObjectPoolManager : MonoBehaviour
 
             ObjectPool pool = obj.GetComponent<ObjectPool>();
             obj.name = " " + pools[i].name;
-            pool.InitializePool(pools[i].prefab, pools[i].size);
+            pool.InitializeList(pools[i].prefab, pools[i].size);
 
             PoolList.Add(pools[i].name, pool);
         }
@@ -70,7 +70,7 @@ public class ObjectPoolManager : MonoBehaviour
         int j = PoolLength(poolName);
         for(int i=0;i<=j-1;i++)
         {
-            PoolList[poolName].AdjustObject(i, speed);
+            PoolList[poolName].AdjustActiveObstacles();
         }
     }
 
@@ -80,13 +80,13 @@ public class ObjectPoolManager : MonoBehaviour
         for (int i = 0; i <= j - 1; i++)
         {
             curObject = FindObject(poolName);
-            PoolList[poolName].ReturnObject(curObject);
+            PoolList[poolName].ReturnAllObjects();
         }
     }
 
     public void PutBackObject(string poolName, GameObject obj)
     {
         // Returns the object to the correct pool
-        PoolList[poolName].ReturnObject(obj);
+        PoolList[poolName].ReturnCurObstacle(obj);
     }
 }

@@ -11,6 +11,7 @@ public class PlayerCollision : MonoBehaviour {
     private PlayerShooting playerShootScript;
     private PlayerMovement playerMoveScript;
     public PlayerHealthBullets healthAsset;
+    private ObstacleManager obstacleScipt;
     public GameObject explosion;
     private SpriteRenderer spriteComp;
     private bool isDead;
@@ -25,7 +26,7 @@ public class PlayerCollision : MonoBehaviour {
         spriteComp = GetComponent<SpriteRenderer>();
         playerMoveScript = GetComponent<PlayerMovement>();
         playerShootScript = GetComponent<PlayerShooting>();
-        
+        obstacleScipt = FindObjectOfType<ObstacleManager>();
     }
 
     private void Start()
@@ -63,7 +64,8 @@ public class PlayerCollision : MonoBehaviour {
         spriteComp.enabled = false;
         myCollider.enabled = false;
         pillarDodgedPool.ReturnAllObject("blockPool");
-
+        obstacleScipt.StopEnums();
+        obstacleScipt.NewGameObstacles();
         menuScript.GameOver();
     }
 

@@ -16,7 +16,12 @@ public class PlayerShooting : MonoBehaviour {
 
     public bool PlayerStatus(bool isPlayerDead)
     {
-        hudScript.AdjustBulletText();
+        if(!isPlayerDead)
+        {
+            healthScipt.ReplenishBullets();
+            hudScript.AdjustBulletText();
+        }
+        
         return isDead = isPlayerDead;
     }
 

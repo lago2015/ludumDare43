@@ -1,72 +1,138 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-/**
- *  This class Represents Each objects pool. This is where all the Spawnable Game objects will be stored for later use.
- *  Each object will have its own pool for easy distinction and accessiblity
- **/
+
 public class ObjectPool : MonoBehaviour
 {
-    private List<GameObject> pool;
-    private GameObject prefab;
+
+    private SpeedManager obstacleSpeedScript;
+    private float curSpeed;
+    public GameObject prefab;
+    //public int size;
+    public ObstacleManager obstacleManager;
+    List<GameObject> objectList;
+    List<GameObject> activeList;
+    private ObstacleBlock curObstacleController;
+    private MoveObject curMovableObstacle;
 
     public int PoolSize()
     {
-        return pool.Count;
+        return activeList.Count;
     }
 
-    public void InitializePool(GameObject obj, int size)
+    // Use this for initialization
+    void Awake()
     {
-        // Intialize List and store reference to this pool's object
-        pool = new List<GameObject>();
-        prefab = obj;
-
-        // Create Objects to store in Pool
-        for (int i = 0; i < size; ++i)
+        obstacleSpeedScript = FindObjectOfType<SpeedManager>();
+        if (obstacleSpeedScript)
         {
-            GameObject thisObj = Instantiate(prefab, transform.position, Quaternion.identity) as GameObject;
-            thisObj.transform.SetParent(gameObject.transform);
-            thisObj.SetActive(false);
-            pool.Add(thisObj);
+            curSpeed = obstacleSpeedScript.GetSpeed();
         }
+    }
+
+    public void InitializeList(GameObject obj,int size)
+    {
+        // Create new Game objext list
+        objectList = new List<GameObject>();
+        activeList = new List<GameObject>();
+        // Spawn in Game Objects to pool and add to the object list
+        for (int i = 0; i < size; i++)
+        {
+            GameObject gameObj = Instantiate(obj, transform.position, Quaternion.identity) as GameObject;
+            gameObj.transform.SetParent(gameObject.transform);
+            gameObj.transform.parent = gameObject.transform;
+            curObstacleController = gameObj.GetComponent<ObstacleBlock>();
+            if (curObstacleController)
+            {
+                curObstacleController.AdjustSpeed(curSpeed);
+            }
+
+            gameObj.SetActive(false);
+
+            objectList.Add(gameObj);
+        }
+
     }
 
     public GameObject GetObject()
     {
-        // Check if there is any objects in the pool
-        if (pool.Count > 0)
-        {
-            // If there are objects in the pool, grab the first object and remove from pool
-            GameObject obj = pool[0];
-            pool.RemoveAt(0);
 
-            return obj;
+
+        // Check if there are any Game Objects in list
+        if (objectList.Count > 0)
+        {
+            // go to first object in list and remove it
+            GameObject gameObj = objectList[0];
+            objectList.RemoveAt(0);
+            activeList.Add(gameObj);
+            //getting the right obstacle movement script
+            curObstacleController = gameObj.GetComponent<ObstacleBlock>();
+            if (curObstacleController)
+            {
+                curObstacleController.AdjustSpeed(curSpeed);
+            }
+            // Return Game Object to specifc manager
+            return gameObj;
         }
         else
         {
-            // If there are no objects in pool, create a new object to use
-            // NOTE: This should not be used much, make sure to have a good reasonable initial size of pool to limit creating objects
-            GameObject obj = Instantiate(prefab, transform.position, Quaternion.identity) as GameObject;
-            obj.transform.SetParent(gameObject.transform);
-
-            return obj;
+            // If there is no object currently in list, spawn a new object in to increase the list
+            GameObject gameObj = Instantiate(prefab, transform.position, Quaternion.identity) as GameObject;
+            activeList.Add(gameObj);
+            // Return the spawned in object to specifc manager
+            return gameObj;
         }
-
     }
 
-    public void AdjustObject(int index,float speed)
+    public void AdjustActiveObstacles()
     {
-        pool[index].GetComponent<ObstacleBlock>().AdjustSpeed(speed);
+        if (obstacleSpeedScript)
+        {
+            curSpeed = obstacleSpeedScript.GetSpeed();
+        }
+        int activeSize = activeList.Count;
+        GameObject curObject;
+        for (int i = 0; i < activeSize; i++)
+        {
+            curObject = activeList[i].gameObject;
+
+            curObstacleController = curObject.GetComponent<ObstacleBlock>();
+            if (curObstacleController)
+            {
+                curObstacleController.AdjustSpeed(curSpeed);
+            }
+        }
     }
 
-    public void ReturnObject(GameObject obj)
+    public void ReturnAllObjects()
     {
+        int activeSize = activeList.Count;
+        for (int i = 0; i < activeSize; i++)
+        {
+            GameObject curObject = activeList[0];
+            activeList.RemoveAt(0);
+            objectList.Add(curObject);
+            curObject.SetActive(false);
+        }
+    }
+
+    public void ReturnCurObstacle(GameObject removeObstacle)
+    {
+        activeList.Remove(removeObstacle);
         // Retun object back to the pool and reset its properties
-        pool.Add(obj);
-        obj.transform.SetParent(gameObject.transform);
-        obj.transform.position = transform.position;
-        obj.SetActive(false);
+        objectList.Add(removeObstacle);
+        removeObstacle.transform.SetParent(gameObject.transform);
+        removeObstacle.transform.position = transform.position;
+        removeObstacle.SetActive(false);
     }
 
-    
+
+
+    public void PlaceObject(GameObject gameObj)
+    {
+        // Add object back to list and remove it back to pools location
+        objectList.Add(gameObj);
+        gameObj.transform.position = transform.position;
+
+    }
 }

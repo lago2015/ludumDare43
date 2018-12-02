@@ -92,6 +92,7 @@ public class ObstacleManager : MonoBehaviour {
 
     public void NewGameObstacles()
     {
+        StopAllCoroutines();
         SpawnObstacles();
         SpawnPickup();
     }
