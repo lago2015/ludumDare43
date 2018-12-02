@@ -6,13 +6,16 @@ public class ObstacleBlock : MonoBehaviour {
 
     public string PoolName;
     private ObjectPoolManager obstaclePoolScript;
+    private HUDManager hudScript;
     private SpriteRenderer spriteComp;
     private int curHealth;
+    private int curScoreValue;
     public float obstacleSpeed = 2;
     public string currentColor_text;
     private Vector3 position;
     private void Awake()
     {
+        hudScript = FindObjectOfType<HUDManager>();
         obstaclePoolScript = GameObject.FindGameObjectWithTag("ObstaclePool").GetComponent<ObjectPoolManager>();
         spriteComp = GetComponent<SpriteRenderer>();
         curHealth = 2;
@@ -36,6 +39,7 @@ public class ObstacleBlock : MonoBehaviour {
                 {
                     currentColor_text = "Red";
                     spriteComp.color = Color.red;
+                    curScoreValue = 2;
                     curHealth = 1;
                 }
                 break;
@@ -44,6 +48,7 @@ public class ObstacleBlock : MonoBehaviour {
                 {
                     currentColor_text = "Blue";
                     spriteComp.color = Color.blue;
+                    curScoreValue = 1;
                     curHealth = 2;
                 }
 
@@ -66,7 +71,7 @@ public class ObstacleBlock : MonoBehaviour {
             if(curHealth<=0)
             {
                 obstaclePoolScript.PutBackObject(PoolName,gameObject);
-                
+                hudScript.IncrementScoreText(curScoreValue);
             }
         }
     }

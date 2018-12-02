@@ -30,14 +30,14 @@ public class PlayerMovement : MonoBehaviour {
     {
         
         //player going down
-        if (Input.GetKey(KeyCode.S))
+        if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
         {
             curPosition = transform.position;
             curPosition.y -= speed * Time.deltaTime;
             transform.position = curPosition;
         }
         //player going up
-        else if(Input.GetKey(KeyCode.W))
+        else if(Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
         {
             curPosition = transform.position;
             curPosition.y += speed * Time.deltaTime;

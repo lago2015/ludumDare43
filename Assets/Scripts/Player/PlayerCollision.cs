@@ -15,9 +15,10 @@ public class PlayerCollision : MonoBehaviour {
     private bool isDead;
     private int pillarsDodged;
     public bool isPlayerDead() { return isDead; }
-
+    private Vector3 startPosition;
     private void Awake()
     {
+        startPosition = transform.position;
         menuScript = FindObjectOfType<MenuManager>();
         myCollider = GetComponent<Collider2D>();
         spriteComp = GetComponent<SpriteRenderer>();
@@ -33,6 +34,7 @@ public class PlayerCollision : MonoBehaviour {
 
     public void ResetGame()
     {
+        transform.position = startPosition;
         playerMoveScript.PlayerStatus(false);
         playerShootScript.PlayerStatus(false);
         explosion.SetActive(false);

@@ -8,7 +8,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e953aed669062ec4cafdef71415e21e7, type: 3}
-  m_Name: PlayerHealthBullets
+  m_Script: {fileID: 11500000, guid: 844d524147d4de14884cea9b90143043, type: 3}
+  m_Name: PlayerScore
   m_EditorClassIdentifier: 
-  NumOfBullets: 0
+  currentScore: 0
