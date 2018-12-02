@@ -8,6 +8,7 @@ public class ObstacleBlock : MonoBehaviour {
     private ObjectPoolManager obstaclePoolScript;
     private HUDManager hudScript;
     private SpriteRenderer spriteComp;
+    private SpeedManager speedScript;
     private int curHealth;
     private int curScoreValue;
     public float obstacleSpeed = 2;
@@ -15,6 +16,8 @@ public class ObstacleBlock : MonoBehaviour {
     private Vector3 position;
     private void Awake()
     {
+        speedScript = FindObjectOfType<SpeedManager>();
+        obstacleSpeed = speedScript.GetSpeed();
         hudScript = FindObjectOfType<HUDManager>();
         obstaclePoolScript = GameObject.FindGameObjectWithTag("ObstaclePool").GetComponent<ObjectPoolManager>();
         spriteComp = GetComponent<SpriteRenderer>();

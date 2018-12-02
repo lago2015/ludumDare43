@@ -97,6 +97,7 @@ public class MenuManager : MonoBehaviour
         titles[1].SetActive(true);
         titles[2].SetActive(false);
         startButton.sprite = texts[2];
+        Time.timeScale = 0;
     }
     
     public void QuitGame()

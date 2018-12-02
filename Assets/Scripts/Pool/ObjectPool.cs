@@ -67,4 +67,6 @@ public class ObjectPool : MonoBehaviour
         obj.transform.position = transform.position;
         obj.SetActive(false);
     }
+
+    
 }

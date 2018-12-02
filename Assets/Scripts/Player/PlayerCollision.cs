@@ -42,6 +42,7 @@ public class PlayerCollision : MonoBehaviour {
         explosion.SetActive(false);
         spriteComp.enabled = true;
         myCollider.enabled = true;
+        Time.timeScale = 1;
     }
 
     private void OnTriggerEnter2D(Collider2D col)
@@ -61,6 +62,8 @@ public class PlayerCollision : MonoBehaviour {
         explosion.SetActive(true);
         spriteComp.enabled = false;
         myCollider.enabled = false;
+        pillarDodgedPool.ReturnAllObject("blockPool");
+
         menuScript.GameOver();
     }
 

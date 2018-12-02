@@ -19,7 +19,7 @@ public class ObjectPoolManager : MonoBehaviour
     // Reference to the Object pool prefab that contains the object pool script and each pool's information in the inspector
     public GameObject poolPrefab;
     public poolData[] pools;
-
+    private GameObject curObject;
     // A dictionary to hold reference to each object pool for access
     private Dictionary<string, ObjectPool> PoolList;
 
@@ -71,6 +71,16 @@ public class ObjectPoolManager : MonoBehaviour
         for(int i=0;i<=j-1;i++)
         {
             PoolList[poolName].AdjustObject(i, speed);
+        }
+    }
+
+    public void ReturnAllObject(string poolName)
+    {
+        int j = PoolLength(poolName);
+        for (int i = 0; i <= j - 1; i++)
+        {
+            curObject = FindObject(poolName);
+            PoolList[poolName].ReturnObject(curObject);
         }
     }
 

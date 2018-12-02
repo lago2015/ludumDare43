@@ -12,7 +12,13 @@ public class SpeedManager : MonoBehaviour {
     private ObstacleManager obstacleScript;
     private ObjectPoolManager poolManagerScript;
     private GameObject curBlock;
-//    private ResetGameobjects resetScript;
+    
+
+
+    private void Awake()
+    {
+        curSpeed = setDefaultSpeed;
+    }
     private void Start()
     {
         poolManagerScript = GetComponent<ObjectPoolManager>();
