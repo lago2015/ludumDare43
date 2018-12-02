@@ -29,8 +29,15 @@ public class SpeedManager : MonoBehaviour {
     public void ResetSpeed()
     {
         curSpeed = setDefaultSpeed;
-        poolManagerScript.AdjustSpeed("blockPool", curSpeed);
-        obstacleScript.TurnOnFastMode(false);
+        if(poolManagerScript)
+        {
+            poolManagerScript.AdjustSpeed("blockPool", curSpeed);
+        }
+        if(obstacleScript)
+        {
+            obstacleScript.TurnOnFastMode(false);
+        }
+        
     }
 
     public void AdjustSpeed(bool isEnabled)

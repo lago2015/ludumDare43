@@ -9,9 +9,12 @@ public class HUDManager : MonoBehaviour {
     public TextMesh bulletText;
     public GameObject playerObj;
     public PlayerScore scoreAsset;
+    private SpeedManager speedScript;
     public PlayerHealthBullets bulletAsset;
     private void Awake()
     {
+        speedScript = FindObjectOfType<SpeedManager>();
+
         ResetScoreText();
     }
 
@@ -22,7 +25,7 @@ public class HUDManager : MonoBehaviour {
 
     public void ResetScoreText()
     {
-
+        speedScript.ResetSpeed();
         scoreAsset.ResetScore();
         scoreText.text = scoreAsset.GetCurrentScore().ToString();
         checkPointText.text = "Checkpoint: " + scoreAsset.GetCurrentCheckpoint();
@@ -38,6 +41,7 @@ public class HUDManager : MonoBehaviour {
     {
         scoreAsset.IncrementCheckpoint();
         checkPointText.text = "Checkpoint: " + scoreAsset.GetCurrentCheckpoint();
+        speedScript.CheckIfCanSpeedUp(scoreAsset.GetCurrentCheckpoint());
     }
 
     

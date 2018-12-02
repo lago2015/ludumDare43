@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class ResetGameobjects : MonoBehaviour {
 
     private PlayerShooting shootScript;
+    private PlayerMovement movementScript;
     private ObstacleManager obstacleManagerScript;
     private HUDManager hudScript;
     private MenuManager menuScript;
@@ -20,6 +21,7 @@ public class ResetGameobjects : MonoBehaviour {
     {
         playerObject= GameObject.FindGameObjectWithTag("Player");
         startPosition = playerObject.transform.position;
+        movementScript = playerObject.GetComponent<PlayerMovement>();
         shootScript = playerObject.GetComponent<PlayerShooting>();
         hudScript = FindObjectOfType<HUDManager>();
         obstacleManagerScript = FindObjectOfType<ObstacleManager>();
@@ -30,7 +32,7 @@ public class ResetGameobjects : MonoBehaviour {
     public void TurnOffText()
     {
         playerBulletText.gameObject.SetActive(false);
-
+        movementScript.PlayerStatus(true);
     }
 
     public void GameOverReset()
@@ -50,9 +52,7 @@ public class ResetGameobjects : MonoBehaviour {
                 Destroy(checkPoint);
             }
         }
-        //reset score
-        hudScript.ResetScoreText();
-
+        
         //stop obstacle Spawning
         obstacleManagerScript.StopEnums();
         
@@ -67,9 +67,14 @@ public class ResetGameobjects : MonoBehaviour {
 
     public void NewGame()
     {
+
+        //start spawning obstacles
         obstacleManagerScript.NewGameObstacles();
+        //reset text and speed
         hudScript.ResetScoreText();
+        //enable player
         shootScript.PlayerStatus(false);
+        movementScript.PlayerStatus(false);
         playerBulletText.gameObject.SetActive(true);
         //turns off menu and turns on hud
         menuScript.StartGame();

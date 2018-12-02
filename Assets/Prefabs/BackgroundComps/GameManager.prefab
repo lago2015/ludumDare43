@@ -132,7 +132,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   setDefaultSpeed: 5
-  incrementRate: 0.2
+  incrementRate: 1
   curSpeedPref: 0
   speedCap: 10
   speedCheckpointRate: 2
