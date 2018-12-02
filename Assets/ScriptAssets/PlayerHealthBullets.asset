@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Name: PlayerHealthBullets
   m_EditorClassIdentifier: 
   defaultAmount: 10
-  NumOfBullets: 10
+  NumOfBullets: 0

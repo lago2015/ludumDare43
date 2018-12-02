@@ -9,6 +9,10 @@ public class PlayerHealthBullets : ScriptableObject {
     private int randNum;
 
     
+    public void AddBullets()
+    {
+        NumOfBullets += defaultAmount;
+    }
 
     public void ReplenishBullets()
     {

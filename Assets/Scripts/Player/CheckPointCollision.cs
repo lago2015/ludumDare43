@@ -16,7 +16,7 @@ public class CheckPointCollision : MonoBehaviour {
     {
         if(col.CompareTag("Player"))
         {
-            playerBullet.ReplenishBullets();
+            playerBullet.AddBullets();
             hudScript.IncrementScoreText(5);
             hudScript.IncrementCheckPointText();
             hudScript.AdjustBulletText();

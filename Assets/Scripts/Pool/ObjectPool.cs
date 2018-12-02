@@ -35,10 +35,12 @@ public class ObjectPool : MonoBehaviour
         // Create new Game objext list
         objectList = new List<GameObject>();
         activeList = new List<GameObject>();
+        prefab = obj;
         // Spawn in Game Objects to pool and add to the object list
         for (int i = 0; i < size; i++)
         {
             GameObject gameObj = Instantiate(obj, transform.position, Quaternion.identity) as GameObject;
+            
             gameObj.transform.SetParent(gameObject.transform);
             gameObj.transform.parent = gameObject.transform;
             curObstacleController = gameObj.GetComponent<ObstacleBlock>();

@@ -628,6 +628,16 @@ Prefab:
       propertyPath: setDefaultSpeed
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 114820162541477164, guid: ca6ec50f94303f4499d219462cb17977,
+        type: 2}
+      propertyPath: maxSpawnCooldown
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114820162541477164, guid: ca6ec50f94303f4499d219462cb17977,
+        type: 2}
+      propertyPath: minSpawnCooldown
+      value: 1.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ca6ec50f94303f4499d219462cb17977, type: 2}
   m_IsPrefabAsset: 0
@@ -1119,6 +1129,16 @@ Prefab:
     - target: {fileID: 4051586706868356, guid: a652f4cd2dd87fd4ea5aa0145265aee6, type: 2}
       propertyPath: m_LocalScale.z
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 102319008691202526, guid: a652f4cd2dd87fd4ea5aa0145265aee6,
+        type: 2}
+      propertyPath: m_OffsetZ
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 199695383825939206, guid: a652f4cd2dd87fd4ea5aa0145265aee6,
+        type: 2}
+      propertyPath: m_SortingOrder
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a652f4cd2dd87fd4ea5aa0145265aee6, type: 2}
@@ -1975,7 +1995,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!1 &1285854629
 GameObject:

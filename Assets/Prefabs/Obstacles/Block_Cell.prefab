@@ -81,6 +81,7 @@ MonoBehaviour:
   PoolName: blockPool
   obstacleSpeed: 2
   currentColor_text: 
+  isObstacle: 1
 --- !u!212 &212817822010507880
 SpriteRenderer:
   m_ObjectHideFlags: 1

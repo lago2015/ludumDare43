@@ -14,6 +14,8 @@ public class ObstacleBlock : MonoBehaviour {
     public float obstacleSpeed = 2;
     public string currentColor_text;
     private Vector3 position;
+    public bool isObstacle;
+
     private void Awake()
     {
         speedScript = FindObjectOfType<SpeedManager>();
@@ -67,7 +69,7 @@ public class ObstacleBlock : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if(col.CompareTag("Bullet"))
+        if(col.CompareTag("Bullet") && isObstacle)
         {
             col.gameObject.GetComponent<BulletMovement>().BlowUp(transform.position);
             curHealth--;
