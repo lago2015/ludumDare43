@@ -8,6 +8,7 @@ public class MenuManager : MonoBehaviour
 {
     public GameObject menuScreen;
     public GameObject optionScreen;
+    public GameObject howToPlaySceen;
     public GameObject hud;
     public GameObject controls;
   
@@ -66,15 +67,22 @@ public class MenuManager : MonoBehaviour
         optionScreen.SetActive(true);
     }
 
+    public void HowToPlay()
+    {
+        howToPlaySceen.SetActive(true);
+    }
+
     public void Back()
     {
         optionScreen.SetActive(false);
+        howToPlaySceen.SetActive(false);
     }
 
     public void Menu()
     {
         menuScreen.SetActive(true);
         optionScreen.SetActive(false);
+        howToPlaySceen.SetActive(false);
         titles[0].SetActive(true);
         titles[1].SetActive(false);
         titles[2].SetActive(false);
