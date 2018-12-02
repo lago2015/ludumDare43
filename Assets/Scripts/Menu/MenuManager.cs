@@ -61,8 +61,7 @@ public class MenuManager : MonoBehaviour
 
     public void Options()
     {
-        sfxSlider.value = soundManger.effects.volume;
-        musicSlider.value = soundManger.music.volume;
+        
         optionScreen.SetActive(true);
     }
 

@@ -1122,6 +1122,12 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &432908284 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114703482285925900, guid: 64edfb0c2b7649e44a3e06ae3de5d78a,
+    type: 2}
+  m_PrefabInternal: {fileID: 1568243117}
+  m_Script: {fileID: 11500000, guid: 3cfade1e2f3310342b33cf840c8391d8, type: 3}
 --- !u!1 &448589956
 GameObject:
   m_ObjectHideFlags: 0
@@ -2790,16 +2796,16 @@ MonoBehaviour:
   m_FillRect: {fileID: 0}
   m_HandleRect: {fileID: 59904412}
   m_Direction: 0
-  m_MinValue: 0
-  m_MaxValue: 1
+  m_MinValue: -80
+  m_MaxValue: 0
   m_WholeNumbers: 0
   m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1196478170}
-        m_MethodName: setVolume
-        m_Mode: 6
+      - m_Target: {fileID: 432908284}
+        m_MethodName: SetSFXVolume
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -3926,16 +3932,16 @@ MonoBehaviour:
   m_FillRect: {fileID: 0}
   m_HandleRect: {fileID: 51127273}
   m_Direction: 0
-  m_MinValue: 0
-  m_MaxValue: 1
+  m_MinValue: -80
+  m_MaxValue: 0
   m_WholeNumbers: 0
   m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1196478170}
-        m_MethodName: setVolume
-        m_Mode: 6
+      - m_Target: {fileID: 432908284}
+        m_MethodName: SetMusicVolume
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
