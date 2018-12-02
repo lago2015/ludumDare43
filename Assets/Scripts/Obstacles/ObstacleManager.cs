@@ -27,8 +27,10 @@ public class ObstacleManager : MonoBehaviour {
     private int curColorPlacement;
     
     private int curSecondaryColorPlace;
-    
-    public float spawnCooldown = 10;
+
+    public float minSpawnCooldown = 3;
+    public float maxSpawnCooldown = 6;
+    private float spawnCooldown;
     private float pillarSpawnCooldown;
     //pick up variables
     private bool pickUpAvailable;
@@ -141,8 +143,8 @@ public class ObstacleManager : MonoBehaviour {
         //turn gameobject on
         //curCollider.SetActive(true);
         //randomize cooldown to vary up distance between pillars
-        pillarSpawnCooldown = Random.Range(2, 3);
-        if (pickUpAvailable && pillarSpawnCooldown >= 2)
+        spawnCooldown = Random.Range(minSpawnCooldown, maxSpawnCooldown);
+        if (pickUpAvailable)
         {
             StartCoroutine(WaitToSpawnNextPickup());
         }

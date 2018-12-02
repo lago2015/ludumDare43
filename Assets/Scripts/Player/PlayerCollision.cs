@@ -58,14 +58,32 @@ public class PlayerCollision : MonoBehaviour {
 
     void GameOver()
     {
+        //tell player scripts that player is dead
         playerMoveScript.PlayerStatus(true);
         playerShootScript.PlayerStatus(true);
+        //enable explosion and disable sprite
         explosion.SetActive(true);
         spriteComp.enabled = false;
         myCollider.enabled = false;
+
+
+        StartCoroutine(DelayGameOver());
+        
+        
+    }
+
+    IEnumerator DelayGameOver()
+    {
+        yield return new WaitForSeconds(0.5f);
+
+        //reset pools
         pillarDodgedPool.ReturnAllObject("blockPool");
+        pillarDodgedPool.ReturnAllObject("explosionPool");
+        pillarDodgedPool.ReturnAllObject("bulletPool");
+        //stop obstacle manager from spawning
         obstacleScipt.StopEnums();
         obstacleScipt.NewGameObstacles();
+
         menuScript.GameOver();
     }
 

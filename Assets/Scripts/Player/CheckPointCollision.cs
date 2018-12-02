@@ -6,7 +6,7 @@ public class CheckPointCollision : MonoBehaviour {
 
     public PlayerHealthBullets playerBullet;
     private HUDManager hudScript;
-
+    
     private void Awake()
     {
         hudScript = FindObjectOfType<HUDManager>();
@@ -19,6 +19,7 @@ public class CheckPointCollision : MonoBehaviour {
             playerBullet.ReplenishBullets();
             hudScript.IncrementScoreText(5);
             hudScript.IncrementCheckPointText();
+            hudScript.AdjustBulletText();
             Destroy(gameObject);
         }
     }

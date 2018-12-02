@@ -22,6 +22,7 @@ public class HUDManager : MonoBehaviour {
 
     public void ResetScoreText()
     {
+
         scoreAsset.ResetScore();
         scoreText.text = scoreAsset.GetCurrentScore().ToString();
         checkPointText.text = "Checkpoint: " + scoreAsset.GetCurrentCheckpoint();
@@ -38,5 +39,7 @@ public class HUDManager : MonoBehaviour {
         scoreAsset.IncrementCheckpoint();
         checkPointText.text = "Checkpoint: " + scoreAsset.GetCurrentCheckpoint();
     }
+
+    
 	
 }

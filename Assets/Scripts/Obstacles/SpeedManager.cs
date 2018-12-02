@@ -12,7 +12,7 @@ public class SpeedManager : MonoBehaviour {
     private ObstacleManager obstacleScript;
     private ObjectPoolManager poolManagerScript;
     private GameObject curBlock;
-    
+    public int speedCheckpointRate = 2;
 
 
     private void Awake()
@@ -51,6 +51,17 @@ public class SpeedManager : MonoBehaviour {
     {
         return curSpeed;
     }
+
+    public void CheckIfCanSpeedUp(int curCheckpoint)
+    {
+        if(curCheckpoint>=speedCheckpointRate)
+        {
+            speedCheckpointRate += speedCheckpointRate;
+            IncrementSpeed();
+            poolManagerScript.AdjustSpeed("blockPool", curSpeed);
+        }
+    }
+
     //called from main menu script after X score is achieved
     public void IncrementSpeed()
     {
@@ -59,7 +70,7 @@ public class SpeedManager : MonoBehaviour {
         {
             curSpeed += incrementRate;
         }
-        CheckMode();
+        //CheckMode();
     }
 
     void CheckMode()

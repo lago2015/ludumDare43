@@ -544,11 +544,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1699827175835676, guid: a652f4cd2dd87fd4ea5aa0145265aee6,
     type: 2}
   m_PrefabInternal: {fileID: 715477726}
---- !u!4 &264832763 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4437111778640126, guid: a652f4cd2dd87fd4ea5aa0145265aee6,
-    type: 2}
-  m_PrefabInternal: {fileID: 715477726}
 --- !u!1001 &271501746
 Prefab:
   m_ObjectHideFlags: 0
@@ -1058,21 +1053,16 @@ Prefab:
       propertyPath: m_RootOrder
       value: 7
       objectReference: {fileID: 0}
-    - target: {fileID: 114387827692067124, guid: a652f4cd2dd87fd4ea5aa0145265aee6,
-        type: 2}
-      propertyPath: pillarDodgedPool
-      value: 
-      objectReference: {fileID: 271501747}
     - target: {fileID: 114280215344229804, guid: a652f4cd2dd87fd4ea5aa0145265aee6,
         type: 2}
       propertyPath: poolScript
       value: 
       objectReference: {fileID: 271501747}
-    - target: {fileID: 50635912849854880, guid: a652f4cd2dd87fd4ea5aa0145265aee6,
+    - target: {fileID: 114387827692067124, guid: a652f4cd2dd87fd4ea5aa0145265aee6,
         type: 2}
-      propertyPath: m_BodyType
-      value: 0
-      objectReference: {fileID: 0}
+      propertyPath: pillarDodgedPool
+      value: 
+      objectReference: {fileID: 271501747}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a652f4cd2dd87fd4ea5aa0145265aee6, type: 2}
   m_IsPrefabAsset: 0
@@ -1930,92 +1920,11 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 2
   m_TargetDisplay: 0
---- !u!1 &1271768948
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1271768949}
-  - component: {fileID: 1271768951}
-  - component: {fileID: 1271768950}
-  m_Layer: 0
-  m_Name: BulletText
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1271768949
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1271768948}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.23, y: -0.4, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 264832763}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!102 &1271768950
+--- !u!102 &1271768950 stripped
 TextMesh:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1271768948}
-  m_Text: 9
-  m_OffsetZ: 0
-  m_CharacterSize: 1
-  m_LineSpacing: 1
-  m_Anchor: 4
-  m_Alignment: 1
-  m_TabSize: 4
-  m_FontSize: 37
-  m_FontStyle: 1
-  m_RichText: 1
-  m_Font: {fileID: 12800000, guid: b4efabb4fd54f35479e25e79f4888f7f, type: 3}
-  m_Color:
-    serializedVersion: 2
-    rgba: 4278190080
---- !u!23 &1271768951
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1271768948}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 4294967295
-  m_Materials:
-  - {fileID: 2100000, guid: b4efabb4fd54f35479e25e79f4888f7f, type: 3}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 0
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_CorrespondingSourceObject: {fileID: 102319008691202526, guid: a652f4cd2dd87fd4ea5aa0145265aee6,
+    type: 2}
+  m_PrefabInternal: {fileID: 715477726}
 --- !u!1 &1285854629
 GameObject:
   m_ObjectHideFlags: 0

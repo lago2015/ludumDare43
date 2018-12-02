@@ -373,6 +373,11 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 59904411}
   m_CullTransparentMesh: 0
+--- !u!102 &80577111 stripped
+TextMesh:
+  m_CorrespondingSourceObject: {fileID: 102319008691202526, guid: a652f4cd2dd87fd4ea5aa0145265aee6,
+    type: 2}
+  m_PrefabInternal: {fileID: 715477726}
 --- !u!1 &86027472
 GameObject:
   m_ObjectHideFlags: 0
@@ -442,6 +447,11 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 86027472}
   m_CullTransparentMesh: 0
+--- !u!1 &139879627 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1699827175835676, guid: a652f4cd2dd87fd4ea5aa0145265aee6,
+    type: 2}
+  m_PrefabInternal: {fileID: 715477726}
 --- !u!1 &187554678
 GameObject:
   m_ObjectHideFlags: 0
@@ -529,7 +539,6 @@ RectTransform:
   m_Children:
   - {fileID: 1831270325}
   - {fileID: 725492809}
-  - {fileID: 824044759}
   - {fileID: 1823266521}
   - {fileID: 976343930}
   m_Father: {fileID: 0}
@@ -1075,6 +1084,42 @@ Prefab:
       propertyPath: m_BodyType
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4051586706868356, guid: a652f4cd2dd87fd4ea5aa0145265aee6, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4051586706868356, guid: a652f4cd2dd87fd4ea5aa0145265aee6, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4051586706868356, guid: a652f4cd2dd87fd4ea5aa0145265aee6, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4051586706868356, guid: a652f4cd2dd87fd4ea5aa0145265aee6, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4051586706868356, guid: a652f4cd2dd87fd4ea5aa0145265aee6, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4051586706868356, guid: a652f4cd2dd87fd4ea5aa0145265aee6, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4051586706868356, guid: a652f4cd2dd87fd4ea5aa0145265aee6, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4051586706868356, guid: a652f4cd2dd87fd4ea5aa0145265aee6, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4051586706868356, guid: a652f4cd2dd87fd4ea5aa0145265aee6, type: 2}
+      propertyPath: m_LocalScale.z
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a652f4cd2dd87fd4ea5aa0145265aee6, type: 2}
   m_IsPrefabAsset: 0
@@ -1158,81 +1203,6 @@ CanvasRenderer:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 725492808}
-  m_CullTransparentMesh: 0
---- !u!1 &824044758
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 824044759}
-  - component: {fileID: 824044761}
-  - component: {fileID: 824044760}
-  m_Layer: 5
-  m_Name: Txt_Bullet
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &824044759
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 824044758}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 187554682}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -658, y: -114}
-  m_SizeDelta: {x: 106.9, y: 86.9}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &824044760
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 824044758}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
-  m_RaycastTarget: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_FontData:
-    m_Font: {fileID: 12800000, guid: b4efabb4fd54f35479e25e79f4888f7f, type: 3}
-    m_FontSize: 67
-    m_FontStyle: 1
-    m_BestFit: 0
-    m_MinSize: 10
-    m_MaxSize: 81
-    m_Alignment: 4
-    m_AlignByGeometry: 0
-    m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
-    m_LineSpacing: 1
-  m_Text: 99
---- !u!222 &824044761
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 824044758}
   m_CullTransparentMesh: 0
 --- !u!1 &832809539
 GameObject:
@@ -1453,7 +1423,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 187554682}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2796,7 +2766,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 187554682}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
@@ -3355,6 +3325,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   checkPointText: {fileID: 725492810}
   scoreText: {fileID: 1831270326}
-  bulletText: {fileID: 824044760}
+  bulletText: {fileID: 80577111}
+  playerObj: {fileID: 139879627}
   scoreAsset: {fileID: 11400000, guid: 1100fb83de3330f418d3fcd513cca2f2, type: 2}
   bulletAsset: {fileID: 11400000, guid: 3195faca132fc5343b4d4ffe5fe3e32e, type: 2}
