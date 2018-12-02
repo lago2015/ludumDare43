@@ -9,7 +9,7 @@ public class ObstacleReturn : MonoBehaviour {
     public string bulletName = "bulletPool";
     public string colliderName = "colliderPool";
     public string explosionName = "explosionPool";
-
+    public string bloodinatorName = "bloodinatorPool";
     private void Awake()
     {
         poolScript = FindObjectOfType<ObjectPoolManager>();
@@ -19,7 +19,14 @@ public class ObstacleReturn : MonoBehaviour {
     {
         if(col.CompareTag("Obstacle"))
         {
-            poolScript.PutBackObject(blockCellName, col.gameObject);
+            if(col.name.Contains("Block_Cell"))
+            {
+                poolScript.PutBackObject(blockCellName, col.gameObject);
+            }
+            else if(col.name.Contains("Bloodinator"))
+            {
+                poolScript.PutBackObject(bloodinatorName, col.gameObject);
+            }
         }
         else if(col.CompareTag("PillarDodged"))
         {

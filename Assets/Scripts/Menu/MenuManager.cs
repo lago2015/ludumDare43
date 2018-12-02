@@ -49,7 +49,6 @@ public class MenuManager : MonoBehaviour
         controls.SetActive(false);
         hud.SetActive(true);
         menuOn = false;
-        FindObjectOfType<Parallaxing>().StartStop(true);
         Time.timeScale = 1;
     }
 
@@ -107,7 +106,6 @@ public class MenuManager : MonoBehaviour
         titles[1].SetActive(true);
         titles[2].SetActive(false);
         startButton.sprite = texts[2];
-        FindObjectOfType<Parallaxing>().StartStop(false);
         Time.timeScale = 0;
     }
     

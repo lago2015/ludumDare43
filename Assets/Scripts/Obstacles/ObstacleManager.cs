@@ -10,17 +10,18 @@ public class ObstacleManager : MonoBehaviour {
     public static ObstacleManager instance = null;
     private ObjectPoolManager poolManager;
     private string obstaclePoolName = "blockPool";
+    private string bloodinatorName = "bloodinatorPool";
     //private string pillarDodgePoolName = "colliderPool";
     public GameObject[] pickupArray;
     public GameObject[] spawnPoints;
-    //public GameObject pillarSpawnPoint;
+    public GameObject bloodinatorSpawnPoint;
     private PlayerCollision playerCollisionScript;
     private ObstacleBlock obstacleController;
     private GameObject curObstacle;
     private GameObject curCollider;
     public bool fastMode;
     //color generation variables
-    
+    private SpeedManager speedScript;
     private int randomIndex;
     private int curColorPlacement;
     
@@ -51,6 +52,7 @@ public class ObstacleManager : MonoBehaviour {
 
     private void Awake()
     {
+        speedScript = GetComponent<SpeedManager>();
         poolManager = GetComponent<ObjectPoolManager>();
         GetPlayer();
         if (instance == null)
@@ -96,49 +98,56 @@ public class ObstacleManager : MonoBehaviour {
     
     public void SpawnObstacles()
     {
-        //spawn pillar of color
-        for (int i = 1; i <= spawnPoints.Length; i++)
+        //randomize what obstacle to spawn
+        randomIndex = Random.Range(0, 10);
+        if(randomIndex<8)
         {
-            //get current obstacle
-            curObstacle = poolManager.FindObject(obstaclePoolName);
-            obstacleController = curObstacle.GetComponent<ObstacleBlock>();
-            if (curObstacle)
+            //spawn pillar of color
+            for (int i = 1; i <= spawnPoints.Length; i++)
             {
-                if (i <= redNum)
+                //get current obstacle
+                curObstacle = poolManager.FindObject(obstaclePoolName);
+                obstacleController = curObstacle.GetComponent<ObstacleBlock>();
+                if (curObstacle)
                 {
+                    if (i <= redNum)
+                    {
 
-                    //place obstacle at spawn point
-                    curObstacle.transform.position = spawnPoints[i - 1].transform.position;
-                    //swap color on obstacle
-                    obstacleController.SwapInColor(0);
-                    //set obstacle active
-                    curObstacle.SetActive(true);
-                }
-                else if (i <= redNum + blueNum)
-                {
-                    //place obstacle at spawn point
-                    curObstacle.transform.position = spawnPoints[i - 1].transform.position;
-                    //swap color on obstacle
-                    obstacleController.SwapInColor(1);
-                    //set obstacle active
-                    curObstacle.SetActive(true);
+                        //place obstacle at spawn point
+                        curObstacle.transform.position = spawnPoints[i - 1].transform.position;
+                        //swap color on obstacle
+                        obstacleController.SwapInColor(0);
+                        //set obstacle active
+                        curObstacle.SetActive(true);
+                    }
+                    else if (i <= redNum + blueNum)
+                    {
+                        //place obstacle at spawn point
+                        curObstacle.transform.position = spawnPoints[i - 1].transform.position;
+                        //swap color on obstacle
+                        obstacleController.SwapInColor(1);
+                        //set obstacle active
+                        curObstacle.SetActive(true);
+                    }
                 }
             }
-
+            
         }
-        
-        //shuffle the spawn points for next iteration for a pillar spawn
-        RandomizeSpawnPoints();
-        //this is the pillar dodged collider to notify the game when the player
-        //has scored and readys the next collider
-        //Get collider from pool
-        //curCollider = poolManager.FindObject(pillarDodgePoolName);
-        //place it to the spawn point which should be behind the pillar
-        //curCollider.transform.position = pillarSpawnPoint.transform.position;
-        //turn gameobject on
-        //curCollider.SetActive(true);
+        else
+        {
+            curObstacle = poolManager.FindObject(bloodinatorName);
+            curObstacle.GetComponent<SinWaveMovement>().xSpeed = speedScript.GetSpeed();
+            curObstacle.transform.position = bloodinatorSpawnPoint.transform.position;
+            curObstacle.SetActive(true);
+            
+        }
+
         //randomize cooldown to vary up distance between pillars
         spawnCooldown = Random.Range(minSpawnCooldown, maxSpawnCooldown);
+        //shuffle the spawn points for next iteration for a pillar spawn
+        RandomizeSpawnPoints();
+        
+        
         if (pickUpAvailable)
         {
             StartCoroutine(WaitToSpawnNextPickup());

@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 212218219614789884}
   - component: {fileID: 60220821503702964}
   - component: {fileID: 114085294864420700}
+  - component: {fileID: 114700958450819192}
   m_Layer: 0
   m_Name: Bloodinator
   m_TagString: Obstacle
@@ -183,8 +184,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   xSpeed: 0.5
-  amplitude: 7
-  frequency: 2.3
+  amplitude: 7.5
+  frequency: 2.1
+--- !u!114 &114700958450819192
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1776523571050670}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c9e7f62449432e4c9ad6c5f93635a8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &212218219614789884
 SpriteRenderer:
   m_ObjectHideFlags: 1

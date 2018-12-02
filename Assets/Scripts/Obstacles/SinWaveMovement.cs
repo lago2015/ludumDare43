@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class SinWaveMovement : MonoBehaviour {
 
-    // WhiteCell Movement Variables
     public float xSpeed = 5.0f;
     public float amplitude = 5.0f;
     public float frequency = 5.0f;
@@ -25,12 +24,9 @@ public class SinWaveMovement : MonoBehaviour {
         numberOfTicks = 0;
         startShot();
     }
-
-
-
+    
     void FixedUpdate()
     {
-
         if (canShoot)
         {
             //increment number ticks 
