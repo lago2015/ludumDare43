@@ -21,9 +21,9 @@ GameObject:
   - component: {fileID: 4045454812634724}
   - component: {fileID: 212697969603539588}
   - component: {fileID: 114410627747205390}
-  - component: {fileID: 58087905445321790}
   - component: {fileID: 50346907644310158}
   - component: {fileID: 114203486204963284}
+  - component: {fileID: 58967106641595244}
   m_Layer: 0
   m_Name: CheckPoint
   m_TagString: PickUp
@@ -38,8 +38,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1977476357451974}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.3857508, y: -15.144573, z: 10.494141}
-  m_LocalScale: {x: 0.15, y: 0.15, z: 0.15}
+  m_LocalPosition: {x: -3.8245106, y: 0.112023115, z: 10.494141}
+  m_LocalScale: {x: 0.15678641, y: 0.15678641, z: 0.15678641}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -64,7 +64,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!58 &58087905445321790
+--- !u!58 &58967106641595244
 CircleCollider2D:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -78,7 +78,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 4.5
+  m_Radius: 4.51
 --- !u!114 &114203486204963284
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -103,8 +103,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PoolName: 
+  blockSprites: []
   obstacleSpeed: 2
   currentColor_text: 
+  isObstacle: 0
 --- !u!212 &212697969603539588
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -140,8 +142,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: d88cadefbe4a4154a81557775f78bfd4, type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 4baf053d618c93f489c9de4e9ac57eac, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

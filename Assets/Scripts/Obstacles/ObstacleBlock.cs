@@ -8,6 +8,7 @@ public class ObstacleBlock : MonoBehaviour {
     private ObjectPoolManager obstaclePoolScript;
     private HUDManager hudScript;
     private SpriteRenderer spriteComp;
+    public Sprite[] blockSprites;
     private SpeedManager speedScript;
     private int curHealth;
     private int curScoreValue;
@@ -42,8 +43,9 @@ public class ObstacleBlock : MonoBehaviour {
             case 0:
                 if(spriteComp)
                 {
-                    currentColor_text = "Red";
-                    spriteComp.color = Color.red;
+                    //currentColor_text = "Red";
+                    spriteComp.sprite = blockSprites[0];
+                    spriteComp.color = Color.white;
                     curScoreValue = 2;
                     curHealth = 1;
                 }
@@ -51,10 +53,13 @@ public class ObstacleBlock : MonoBehaviour {
             case 1:
                 if (spriteComp)
                 {
-                    currentColor_text = "Blue";
-                    spriteComp.color = Color.blue;
+                    //currentColor_text = "Blue";
+                    //spriteComp.color = Color.blue;
+                    spriteComp.sprite = blockSprites[1];
+                    spriteComp.color = Color.white;
                     curScoreValue = 1;
                     curHealth = 2;
+
                 }
 
                 break;
@@ -77,6 +82,10 @@ public class ObstacleBlock : MonoBehaviour {
             {
                 obstaclePoolScript.PutBackObject(PoolName,gameObject);
                 hudScript.IncrementScoreText(curScoreValue);
+            }
+            else
+            {
+                spriteComp.color = Color.red;
             }
         }
     }

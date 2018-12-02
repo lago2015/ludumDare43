@@ -87,13 +87,13 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1771348288221000}
-  m_LocalRotation: {x: 0.58571714, y: -0.39607283, z: -0.3959415, w: -0.5859114}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_LocalScale: {x: 4, y: 4, z: 4}
   m_Children: []
   m_Father: {fileID: 4437111778640126}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: -89.981, y: -291.8831, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4437111778640126
 Transform:
   m_ObjectHideFlags: 1
@@ -102,7 +102,7 @@ Transform:
   m_GameObject: {fileID: 1699827175835676}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -7.516127, y: 0.20891511, z: -0.085105464}
-  m_LocalScale: {x: 0.14318861, y: 0.14318861, z: 0.14318861}
+  m_LocalScale: {x: 0.113365285, y: 0.113365285, z: 0.113365285}
   m_Children:
   - {fileID: 4489041031405914}
   - {fileID: 4051586706868356}
@@ -205,7 +205,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.099999994
+  m_Radius: 3.86
 --- !u!102 &102319008691202526
 TextMesh:
   serializedVersion: 3
@@ -268,8 +268,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  maxRange: 5.7
-  lowestRange: -3.5
+  maxRange: 5.5
+  lowestRange: -3.2
 --- !u!198 &198664506999527784
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -4824,7 +4824,7 @@ ParticleSystemRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 0
   m_RenderMode: 0
   m_SortMode: 0
   m_MinParticleSize: 0

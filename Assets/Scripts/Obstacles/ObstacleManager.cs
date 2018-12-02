@@ -21,8 +21,6 @@ public class ObstacleManager : MonoBehaviour {
     public bool fastMode;
     //color generation variables
     
-    
-    
     private int randomIndex;
     private int curColorPlacement;
     
