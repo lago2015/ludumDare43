@@ -13,15 +13,12 @@ public class Parallaxing : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        if (isPlaying)
+        transform.Translate(new Vector3(Time.deltaTime * speed, 0.0f));
+        if (transform.position.x < cuttOffPoint)
         {
-            transform.Translate(new Vector3(Time.deltaTime * speed, 0.0f));
-            if (transform.position.x < cuttOffPoint)
-            {
-                transform.position = spawnpoint.transform.position;
-            }
+            transform.position = spawnpoint.transform.position;
         }
-	}
+    }
 
     public void StartStop(bool play)
     {
