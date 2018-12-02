@@ -10,6 +10,7 @@ public class PlayerCollision : MonoBehaviour {
     public string colliderPoolString="colliderPool";
     private PlayerShooting playerShootScript;
     private PlayerMovement playerMoveScript;
+    public PlayerHealthBullets healthAsset;
     public GameObject explosion;
     private SpriteRenderer spriteComp;
     private bool isDead;
@@ -34,6 +35,7 @@ public class PlayerCollision : MonoBehaviour {
 
     public void ResetGame()
     {
+        healthAsset.ReplenishBullets();
         transform.position = startPosition;
         playerMoveScript.PlayerStatus(false);
         playerShootScript.PlayerStatus(false);

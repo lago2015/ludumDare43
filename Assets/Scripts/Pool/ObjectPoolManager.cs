@@ -23,7 +23,7 @@ public class ObjectPoolManager : MonoBehaviour
     // A dictionary to hold reference to each object pool for access
     private Dictionary<string, ObjectPool> PoolList;
 
-    public void Start()
+    public void Awake()
     {
         InitilalizeAllPools();
     }
@@ -58,6 +58,20 @@ public class ObjectPoolManager : MonoBehaviour
     {
         // Finds the correct pool and grabs the object
         return PoolList[poolName].GetObject();
+    }
+
+    public int PoolLength(string poolName)
+    {
+        return PoolList[poolName].PoolSize();
+    }
+
+    public void AdjustSpeed(string poolName,float speed)
+    {
+        int j = PoolLength(poolName);
+        for(int i=0;i<=j-1;i++)
+        {
+            PoolList[poolName].AdjustObject(i, speed);
+        }
     }
 
     public void PutBackObject(string poolName, GameObject obj)

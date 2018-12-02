@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerShooting : MonoBehaviour {
 
+
+    private HUDManager hudScript;
     private BulletMovement curBulletScript;
     public ObjectPoolManager poolScript;
     private GameObject curBullet;
@@ -12,11 +14,17 @@ public class PlayerShooting : MonoBehaviour {
     private int curBullets;
     private bool isDead;
 
-    public bool PlayerStatus(bool isPlayerDead) { return isDead = isPlayerDead; }
+    public bool PlayerStatus(bool isPlayerDead)
+    {
+        hudScript.AdjustBulletText();
+        return isDead = isPlayerDead;
+    }
 
     private void Awake()
     {
+        hudScript = FindObjectOfType<HUDManager>();
         healthScipt.ReplenishBullets();
+        hudScript.AdjustBulletText();
     }
 
     private void Update()
@@ -30,6 +38,7 @@ public class PlayerShooting : MonoBehaviour {
                 curBullet = poolScript.FindObject("bulletPool");
                 if (curBullet)
                 {
+
                     //places bullet in world
                     curBullet.transform.position = bulletSpawnPoint.transform.position;
                     curBulletScript = curBullet.GetComponent<BulletMovement>();
@@ -37,6 +46,7 @@ public class PlayerShooting : MonoBehaviour {
                     curBullet.SetActive(true);
                     curBulletScript.ResetCoroutine();
                     healthScipt.DecrementBullets();
+                    hudScript.AdjustBulletText();
                 }
             }
         }

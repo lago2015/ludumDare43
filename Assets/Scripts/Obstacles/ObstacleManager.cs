@@ -10,10 +10,10 @@ public class ObstacleManager : MonoBehaviour {
     public static ObstacleManager instance = null;
     private ObjectPoolManager poolManager;
     private string obstaclePoolName = "blockPool";
-    private string pillarDodgePoolName = "colliderPool";
+    //private string pillarDodgePoolName = "colliderPool";
     public GameObject[] pickupArray;
     public GameObject[] spawnPoints;
-    public GameObject pillarSpawnPoint;
+    //public GameObject pillarSpawnPoint;
     private PlayerCollision playerCollisionScript;
     private ObstacleBlock obstacleController;
     private GameObject curObstacle;
@@ -134,11 +134,11 @@ public class ObstacleManager : MonoBehaviour {
         //this is the pillar dodged collider to notify the game when the player
         //has scored and readys the next collider
         //Get collider from pool
-        curCollider = poolManager.FindObject(pillarDodgePoolName);
+        //curCollider = poolManager.FindObject(pillarDodgePoolName);
         //place it to the spawn point which should be behind the pillar
-        curCollider.transform.position = pillarSpawnPoint.transform.position;
+        //curCollider.transform.position = pillarSpawnPoint.transform.position;
         //turn gameobject on
-        curCollider.SetActive(true);
+        //curCollider.SetActive(true);
         //randomize cooldown to vary up distance between pillars
         pillarSpawnCooldown = Random.Range(2, 3);
         if (pickUpAvailable && pillarSpawnCooldown >= 2)

@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4155094144572446}
   - component: {fileID: 114820162541477164}
   - component: {fileID: 114767999113418478}
+  - component: {fileID: 114133105282037524}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: ObstaclePool
@@ -118,6 +119,21 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &114133105282037524
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1302084793725878}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e42363fd44cefff4d8a428879bc3aa67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  setDefaultSpeed: 0
+  incrementRate: 0.2
+  curSpeedPref: 0
+  speedCap: 10
 --- !u!114 &114767999113418478
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -136,9 +152,6 @@ MonoBehaviour:
     size: 30
   - name: bulletPool
     prefab: {fileID: 1058212160956604, guid: 2c49970f833141549944216066801be5, type: 2}
-    size: 30
-  - name: colliderPool
-    prefab: {fileID: 1785349795510004, guid: 6d1ed7b3c14586a4da901068a33e271f, type: 2}
     size: 30
   - name: explosionPool
     prefab: {fileID: 1000010981681902, guid: 1d67bdb45de73ab4cadefddd702f4f8d, type: 2}

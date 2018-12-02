@@ -84,8 +84,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1699827175835676}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.66, y: 0.49, z: -0.085105464}
-  m_LocalScale: {x: 6.7452, y: 6.7452, z: 6.7452}
+  m_LocalPosition: {x: -7.516127, y: 0.20891511, z: -0.085105464}
+  m_LocalScale: {x: 0.14318861, y: 0.14318861, z: 0.14318861}
   m_Children:
   - {fileID: 4489041031405914}
   - {fileID: 4051586706868356}
@@ -99,7 +99,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1676587298202422}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.216, y: 0, z: 0}
+  m_LocalPosition: {x: 7.5, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4437111778640126}
@@ -167,6 +167,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pillarDodgedPool: {fileID: 0}
   colliderPoolString: colliderPool
+  healthAsset: {fileID: 11400000, guid: 3195faca132fc5343b4d4ffe5fe3e32e, type: 2}
   explosion: {fileID: 1771348288221000}
 --- !u!114 &114967212476333200
 MonoBehaviour:
@@ -4789,8 +4790,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  m_SortingOrder: -1
+  m_Sprite: {fileID: 21300000, guid: d88cadefbe4a4154a81557775f78bfd4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

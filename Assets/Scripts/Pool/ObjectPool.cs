@@ -10,6 +10,11 @@ public class ObjectPool : MonoBehaviour
     private List<GameObject> pool;
     private GameObject prefab;
 
+    public int PoolSize()
+    {
+        return pool.Count;
+    }
+
     public void InitializePool(GameObject obj, int size)
     {
         // Intialize List and store reference to this pool's object
@@ -47,6 +52,11 @@ public class ObjectPool : MonoBehaviour
             return obj;
         }
 
+    }
+
+    public void AdjustObject(int index,float speed)
+    {
+        pool[index].GetComponent<ObstacleBlock>().AdjustSpeed(speed);
     }
 
     public void ReturnObject(GameObject obj)

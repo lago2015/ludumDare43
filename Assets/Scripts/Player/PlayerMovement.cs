@@ -8,7 +8,8 @@ public class PlayerMovement : MonoBehaviour {
     public float speed = 2.0f;      //speed to travel 
     private Vector3 curPosition;
     private bool isDead;
-
+    public float maxRange = 5.7f;
+    public float lowestRange = -3.5f;
     private void Awake()
     {
         defaultSpeed = speed;
@@ -33,16 +34,24 @@ public class PlayerMovement : MonoBehaviour {
         if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
         {
             curPosition = transform.position;
-            curPosition.y -= speed * Time.deltaTime;
-            transform.position = curPosition;
+            if(curPosition.y>= lowestRange)
+            {
+                curPosition.y -= speed * Time.deltaTime;
+                transform.position = curPosition;
+            }
+            
         }
         //player going up
         else if(Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
         {
             curPosition = transform.position;
-            curPosition.y += speed * Time.deltaTime;
-            transform.position = curPosition;
+            if(curPosition.y<= maxRange)
+            {
+                curPosition.y += speed * Time.deltaTime;
+                transform.position = curPosition;
+            }
+            
         }
-
+        
     }
 }

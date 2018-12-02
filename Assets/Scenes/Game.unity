@@ -459,7 +459,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &187554679
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -547,11 +547,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 114820162541477164, guid: ca6ec50f94303f4499d219462cb17977,
-        type: 2}
-      propertyPath: spawnPoints.Array.size
-      value: 6
-      objectReference: {fileID: 0}
     - target: {fileID: 4155094144572446, guid: ca6ec50f94303f4499d219462cb17977, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -619,6 +614,11 @@ Prefab:
       propertyPath: pillarSpawnPoint
       value: 
       objectReference: {fileID: 1975666548}
+    - target: {fileID: 114133105282037524, guid: ca6ec50f94303f4499d219462cb17977,
+        type: 2}
+      propertyPath: setDefaultSpeed
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ca6ec50f94303f4499d219462cb17977, type: 2}
   m_IsPrefabAsset: 0
@@ -981,7 +981,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4701586207414804, guid: 0be40a449f4feb847a4c243df92612cc, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 5.717577
+      value: 8.39
       objectReference: {fileID: 0}
     - target: {fileID: 4701586207414804, guid: 0be40a449f4feb847a4c243df92612cc, type: 2}
       propertyPath: m_LocalPosition.z
@@ -1059,32 +1059,10 @@ Prefab:
       propertyPath: poolScript
       value: 
       objectReference: {fileID: 271501747}
-    - target: {fileID: 212658337046707188, guid: a652f4cd2dd87fd4ea5aa0145265aee6,
+    - target: {fileID: 50635912849854880, guid: a652f4cd2dd87fd4ea5aa0145265aee6,
         type: 2}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: d88cadefbe4a4154a81557775f78bfd4,
-        type: 3}
-    - target: {fileID: 4437111778640126, guid: a652f4cd2dd87fd4ea5aa0145265aee6, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 0.14318861
-      objectReference: {fileID: 0}
-    - target: {fileID: 4437111778640126, guid: a652f4cd2dd87fd4ea5aa0145265aee6, type: 2}
-      propertyPath: m_LocalScale.y
-      value: 0.14318861
-      objectReference: {fileID: 0}
-    - target: {fileID: 4437111778640126, guid: a652f4cd2dd87fd4ea5aa0145265aee6, type: 2}
-      propertyPath: m_LocalScale.z
-      value: 0.14318861
-      objectReference: {fileID: 0}
-    - target: {fileID: 4489041031405914, guid: a652f4cd2dd87fd4ea5aa0145265aee6, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 7.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 212658337046707188, guid: a652f4cd2dd87fd4ea5aa0145265aee6,
-        type: 2}
-      propertyPath: m_SortingOrder
-      value: -1
+      propertyPath: m_BodyType
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a652f4cd2dd87fd4ea5aa0145265aee6, type: 2}
@@ -2298,7 +2276,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4957107515924112, guid: 960254798c7b56d4ea4604073bfa90a2, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -5.48
+      value: -5.02
       objectReference: {fileID: 0}
     - target: {fileID: 4957107515924112, guid: 960254798c7b56d4ea4604073bfa90a2, type: 2}
       propertyPath: m_LocalPosition.z
@@ -3366,6 +3344,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   checkPointText: {fileID: 725492810}
   scoreText: {fileID: 1831270326}
-  bulletText: {fileID: 0}
+  bulletText: {fileID: 824044760}
   scoreAsset: {fileID: 11400000, guid: 1100fb83de3330f418d3fcd513cca2f2, type: 2}
-  bulletAsset: {fileID: 0}
+  bulletAsset: {fileID: 11400000, guid: 3195faca132fc5343b4d4ffe5fe3e32e, type: 2}

@@ -10,17 +10,20 @@ public class SpeedManager : MonoBehaviour {
     public int curSpeedPref;
     public int speedCap = 10;
     private ObstacleManager obstacleScript;
+    private ObjectPoolManager poolManagerScript;
+    private GameObject curBlock;
 //    private ResetGameobjects resetScript;
-    private void Awake()
+    private void Start()
     {
-  //      resetScript = GameObject.FindGameObjectWithTag("MainMenu").GetComponent<ResetGameobjects>();
-        obstacleScript = GameObject.FindGameObjectWithTag("Respawn").GetComponent<ObstacleManager>();
+        poolManagerScript = GetComponent<ObjectPoolManager>();
+        obstacleScript = GetComponent<ObstacleManager>();
         ResetSpeed();
     }
 
     public void ResetSpeed()
     {
         curSpeed = setDefaultSpeed;
+        poolManagerScript.AdjustSpeed("blockPool", curSpeed);
         obstacleScript.TurnOnFastMode(false);
     }
 
