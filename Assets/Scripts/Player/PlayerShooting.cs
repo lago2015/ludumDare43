@@ -13,7 +13,7 @@ public class PlayerShooting : MonoBehaviour {
     public PlayerHealthBullets healthScipt;
     private int curBullets;
     private bool isDead;
-
+    private AudioController audioScript;
     public bool PlayerStatus(bool isPlayerDead)
     {
         if(!isPlayerDead)
@@ -27,6 +27,7 @@ public class PlayerShooting : MonoBehaviour {
 
     private void Awake()
     {
+        audioScript = FindObjectOfType<AudioController>();
         hudScript = FindObjectOfType<HUDManager>();
         healthScipt.ReplenishBullets();
         hudScript.AdjustBulletText();
@@ -43,7 +44,7 @@ public class PlayerShooting : MonoBehaviour {
                 curBullet = poolScript.FindObject("bulletPool");
                 if (curBullet)
                 {
-
+                    audioScript.PlayerShot(bulletSpawnPoint.transform.position);
                     //places bullet in world
                     curBullet.transform.position = bulletSpawnPoint.transform.position;
                     curBulletScript = curBullet.GetComponent<BulletMovement>();

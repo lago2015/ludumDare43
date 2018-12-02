@@ -50,6 +50,14 @@ public class PlayerCollision : MonoBehaviour {
         {
             GameOver();
         }
+        else if(col.CompareTag("Obstacle"))
+        {
+            BloodinatorCollision bloodinatorScript = col.gameObject.GetComponent<BloodinatorCollision>();
+            if(bloodinatorScript)
+            {
+                GameOver();
+            }
+        }
     }
 
     void GameOver()

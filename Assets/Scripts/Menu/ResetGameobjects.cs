@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class ResetGameobjects : MonoBehaviour {
 
+    private BackgroundMusicManager musicManager;
     private PlayerShooting shootScript;
     private PlayerMovement movementScript;
     private ObstacleManager obstacleManagerScript;
@@ -27,6 +28,7 @@ public class ResetGameobjects : MonoBehaviour {
         obstacleManagerScript = FindObjectOfType<ObstacleManager>();
         menuScript = FindObjectOfType<MenuManager>();
         poolManager = FindObjectOfType<ObjectPoolManager>();
+        musicManager = FindObjectOfType<BackgroundMusicManager>();
     }
 
     public void TurnOffText()
@@ -37,6 +39,8 @@ public class ResetGameobjects : MonoBehaviour {
 
     public void GameOverReset()
     {
+        musicManager.MenuBackground();
+
         //Reset player settings
         playerObject.transform.position = startPosition;
         shootScript.PlayerStatus(true);
@@ -67,7 +71,7 @@ public class ResetGameobjects : MonoBehaviour {
 
     public void NewGame()
     {
-
+        musicManager.InGameBackground();
         //start spawning obstacles
         obstacleManagerScript.NewGameObstacles();
         //reset text and speed

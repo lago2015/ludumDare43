@@ -11,5 +11,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e953aed669062ec4cafdef71415e21e7, type: 3}
   m_Name: PlayerHealthBullets
   m_EditorClassIdentifier: 
-  defaultAmount: 10
-  NumOfBullets: 0
+  defaultAmount: 15
+  NumOfBullets: 15

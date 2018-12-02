@@ -12,5 +12,4 @@ public class BloodinatorCollision : MonoBehaviour {
             col.gameObject.GetComponent<BulletMovement>().BlowUp(transform.position);
         }
     }
-
 }

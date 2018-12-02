@@ -12,13 +12,14 @@ public class BulletMovement : MonoBehaviour {
     private ObjectPoolManager bulletPool;
     public string bulletPoolName;
     public string explosionPoolName;
+    private AudioController audioScript;
     public void SetPool(ObjectPoolManager curPool) { bulletPool = curPool; }
-    public void ResetCoroutine()
+
+    private void Awake()
     {
-        //StopAllCoroutines();
-        //StartCoroutine(LaunchTime());
+        audioScript = FindObjectOfType<AudioController>();
     }
-    
+
     void FixedUpdate()
     {
         if (ShouldMove)
@@ -37,8 +38,14 @@ public class BulletMovement : MonoBehaviour {
         BlowUp(transform.position);
     }
 
+    public void ResetCoroutine()
+    {
+        StopAllCoroutines();
+    }
+
     public void BlowUp(Vector3 curPosition)
     {
+        audioScript.BulletPop(transform.position);
         explosion = bulletPool.FindObject(explosionPoolName);
         explosion.transform.position = curPosition;
         explosion.SetActive(true);
