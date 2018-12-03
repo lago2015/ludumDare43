@@ -10,8 +10,10 @@ public class MenuManager : MonoBehaviour
     public GameObject optionScreen;
     public GameObject howToPlaySceen;
     public GameObject hud;
-    public GameObject controls;
-  
+    public GameObject gameOverScreen;
+
+    public PlayerScore playerScore;
+    public Text scoreText;
 
     public Slider sfxSlider;
     public Slider musicSlider;
@@ -46,7 +48,7 @@ public class MenuManager : MonoBehaviour
     public void StartGame()
     {
         menuScreen.SetActive(false);
-        controls.SetActive(false);
+        gameOverScreen.SetActive(false);
         hud.SetActive(true);
         menuOn = false;
         Time.timeScale = 1;
@@ -105,6 +107,10 @@ public class MenuManager : MonoBehaviour
         titles[1].SetActive(true);
         titles[2].SetActive(false);
         startButton.sprite = texts[2];
+
+        gameOverScreen.SetActive(true);
+        scoreText.text = playerScore.GetCurrentScore().ToString();
+
         Time.timeScale = 0;
     }
     
