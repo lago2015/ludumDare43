@@ -38,7 +38,7 @@ public class ObstacleBlock : MonoBehaviour {
 
     public void SwapInColor(int colorIndex)
     {
-        
+        obstacleSpeed = speedScript.GetSpeed();
         switch (colorIndex)
         {
             //red
