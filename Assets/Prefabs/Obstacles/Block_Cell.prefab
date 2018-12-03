@@ -80,8 +80,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PoolName: blockPool
   blockSprites:
-  - {fileID: 21300000, guid: 8688130ef0a5d0d46b2678ba68f78360, type: 3}
   - {fileID: 21300000, guid: 258cbca6204cc4148ad7dbbeedd26171, type: 3}
+  - {fileID: 21300000, guid: 8688130ef0a5d0d46b2678ba68f78360, type: 3}
   obstacleSpeed: 2
   currentColor_text: 
   isObstacle: 1
