@@ -71,7 +71,7 @@ public class ResetGameobjects : MonoBehaviour {
         poolManager.ReturnAllObject("blockPool");
         poolManager.ReturnAllObject("explosionPool");
         poolManager.ReturnAllObject("bulletPool");
-
+        poolManager.ReturnAllObject("bloodinatorPool");
         //turns off hud and turns on game over screen
         menuScript.GameOver();
     }
