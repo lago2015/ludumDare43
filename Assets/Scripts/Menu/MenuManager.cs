@@ -14,6 +14,7 @@ public class MenuManager : MonoBehaviour
 
     public PlayerScore playerScore;
     public Text scoreText;
+    public Text checkpointText;
 
     public Slider sfxSlider;
     public Slider musicSlider;
@@ -25,6 +26,7 @@ public class MenuManager : MonoBehaviour
     public GameObject[] titles;
 
     private bool menuOn;
+    private bool gameOver = false;
     private SoundManager soundManger;
 
 
@@ -51,6 +53,7 @@ public class MenuManager : MonoBehaviour
         gameOverScreen.SetActive(false);
         hud.SetActive(true);
         menuOn = false;
+        gameOver = false;
         Time.timeScale = 1;
     }
 
@@ -63,19 +66,23 @@ public class MenuManager : MonoBehaviour
 
     public void Options()
     {
-        
         optionScreen.SetActive(true);
     }
 
     public void HowToPlay()
     {
         howToPlaySceen.SetActive(true);
+        gameOverScreen.SetActive(false);
     }
 
     public void Back()
     {
         optionScreen.SetActive(false);
         howToPlaySceen.SetActive(false);
+        if (gameOver)
+        {
+            gameOverScreen.SetActive(true);
+        }
     }
 
     public void Menu()
@@ -102,6 +109,7 @@ public class MenuManager : MonoBehaviour
 
     public void GameOver()
     {
+        gameOver = true;
         Menu();
         titles[0].SetActive(false);
         titles[1].SetActive(true);
@@ -110,6 +118,7 @@ public class MenuManager : MonoBehaviour
 
         gameOverScreen.SetActive(true);
         scoreText.text = playerScore.GetCurrentScore().ToString();
+        checkpointText.text = playerScore.GetCurrentCheckpoint().ToString();
 
         Time.timeScale = 0;
     }

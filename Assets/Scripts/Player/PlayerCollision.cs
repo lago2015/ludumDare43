@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerCollision : MonoBehaviour {
 
+    public bool gameOver = false;
+
     private MenuManager menuScript;
     private Collider2D myCollider;
     public ObjectPoolManager pillarDodgedPool;
@@ -38,6 +40,7 @@ public class PlayerCollision : MonoBehaviour {
 
     public void ResetGame()
     {
+        gameOver = false;
         healthAsset.ReplenishBullets();
         explosion.SetActive(false);
         spriteComp.enabled = true;
@@ -64,6 +67,7 @@ public class PlayerCollision : MonoBehaviour {
 
     void GameOver()
     {
+        gameOver = true;
         audioScript.PlayerDeath(transform.position);
         //enable explosion and disable sprite
         explosion.SetActive(true);
