@@ -41,4 +41,21 @@ public class PlayerScore : ScriptableObject {
         return highScore;
     }
 
+    public int GetMostSacrificed()
+    {
+        return PlayerPrefs.GetInt("mostSacrificed");
+    }
+
+    public int SetHighScore(int newHighScore)
+    {
+        PlayerPrefs.SetInt("highScore", newHighScore);
+        return newHighScore;
+    }
+
+
+    public int SetNewMostSacrificed(int newSacrifice)
+    {
+        PlayerPrefs.SetInt("mostSacrificed", newSacrifice);
+        return newSacrifice;
+    }
 }
