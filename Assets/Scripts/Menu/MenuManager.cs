@@ -15,6 +15,8 @@ public class MenuManager : MonoBehaviour
     public PlayerScore playerScore;
     public Text scoreText;
     public Text checkpointText;
+    public Text highScoreText;
+    public Text highCheckpointText;
 
     public Slider sfxSlider;
     public Slider musicSlider;
@@ -119,6 +121,18 @@ public class MenuManager : MonoBehaviour
         gameOverScreen.SetActive(true);
         scoreText.text = playerScore.GetCurrentScore().ToString();
         checkpointText.text = playerScore.GetCurrentCheckpoint().ToString();
+
+        if (playerScore.GetCurrentScore() > playerScore.GetHighScore())
+        {
+            playerScore.SetHighScore(playerScore.GetCurrentScore());
+        }
+        if (playerScore.GetCurrentCheckpoint() > playerScore.GetMostSacrificed())
+        {
+            playerScore.SetNewMostSacrificed(playerScore.GetCurrentCheckpoint());
+        }
+
+        highScoreText.text = playerScore.GetHighScore().ToString();
+        highCheckpointText.text = playerScore.GetMostSacrificed().ToString();
 
         Time.timeScale = 0;
     }
