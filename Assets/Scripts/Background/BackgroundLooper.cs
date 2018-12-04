@@ -10,7 +10,7 @@ public class BackgroundLooper : MonoBehaviour {
     {
         if (collider.gameObject.tag == ("Respawn"))
         {
-            float widthOfBGObject = ((BoxCollider2D)collider).size.x;
+            //float widthOfBGObject = ((BoxCollider2D)collider).size.x;
             Vector3 position = collider.transform.position;
             position.x += distanceOffset;
             collider.transform.position = position;

@@ -23,7 +23,7 @@ public class MenuManager : MonoBehaviour
 
     public Image startButton;
     public Image titleImage;
-
+    public Image ludumImage;
     public Sprite[] texts;
     public GameObject[] titles;
 
@@ -38,16 +38,6 @@ public class MenuManager : MonoBehaviour
         soundManger = FindObjectOfType<SoundManager>();
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.G))
-        {
-            if (!menuOn)
-            {
-                GameOver();
-            }
-        }
-    }
 
     public void StartGame()
     {
@@ -89,6 +79,7 @@ public class MenuManager : MonoBehaviour
 
     public void Menu()
     {
+        //ludumImage.enabled = true;
         menuScreen.SetActive(true);
         optionScreen.SetActive(false);
         howToPlaySceen.SetActive(false);
@@ -106,18 +97,21 @@ public class MenuManager : MonoBehaviour
         titles[0].SetActive(false);
         titles[1].SetActive(false);
         titles[2].SetActive(true);
+        ludumImage.enabled = false;
+
         startButton.sprite = texts[1];
     }
 
     public void GameOver()
     {
+        ludumImage.enabled = true;
+
         gameOver = true;
         Menu();
         titles[0].SetActive(false);
         titles[1].SetActive(true);
         titles[2].SetActive(false);
         startButton.sprite = texts[2];
-
         gameOverScreen.SetActive(true);
         scoreText.text = playerScore.GetCurrentScore().ToString();
         checkpointText.text = playerScore.GetCurrentCheckpoint().ToString();
